@@ -5,4 +5,4 @@
 
 ### How to use:
     
-    see details in Jupyter Notebook drift_detection_test.ipython
+    see details in Jupyter Notebook drift_detection_test.ipynb
