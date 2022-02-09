@@ -4,5 +4,8 @@
     This version suppurts Tensorflow and Pytorch which allows the model to run on GPUs.
 
 ### How to use:
-    
-    see details in Jupyter Notebook drift_detection_test.ipynb
+First use model to predict the label
+    ref_logist = my_model(X_ref)
+    x_logist = my_model(x_h0)
+Then call the function drift_detection, and select "KSDrift" or "ChiSquareDrift" in the method
+    preds = drift_detection(ref_logist, x_logist, 0.01, method="KSDrift")
