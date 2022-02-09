@@ -4,8 +4,8 @@
     This version suppurts Tensorflow and Pytorch which allows the model to run on GPUs.
 
 ### How to use:
-First use model to predict the label
+    First use model to predict the label
     ref_logist = my_model(X_ref)
     x_logist = my_model(x_h0)
-Then call the function drift_detection, and select "KSDrift" or "ChiSquareDrift" in the method
+    Then call the function drift_detection, and select "KSDrift" or "ChiSquareDrift" in the method
     preds = drift_detection(ref_logist, x_logist, 0.01, method="KSDrift")
