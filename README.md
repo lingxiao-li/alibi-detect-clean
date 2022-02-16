@@ -4,8 +4,18 @@
     This version suppurts Tensorflow and Pytorch which allows the model to run on GPUs.
 
 ### How to use:
-    First use model to predict the label
+    from drift_detection import drift_detection
     ref_logist = my_model(X_ref)
-    x_logist = my_model(x_h0)
-    Then call the function drift_detection, and select "KSDrift" or "ChiSquareDrift" in the method
-    preds = drift_detection(ref_logist, x_logist, 0.01, method="KSDrift")
+    drift_detector = drift_detection(ref_logist, 0.01, method="KSDrift")
+    or
+    drift_detector = drift_detection(ref_logist, 0.01, method="ChiSquareDrift")
+    
+    you can update any parameters and data by
+    drift_detector.update_ref(new_x_ref)
+    drift_detector.update_threshold(new_threshold)
+    drift_detector.update_return_p_val(new_return_p_val)
+    drift_detector.update_return_distance(new_return_distance)
+    
+    get the result by 
+    x_logist = my_model(x)
+    preds = drift_detector.get_result(x_logist)
