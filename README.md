@@ -5,7 +5,7 @@
 
 ### How to use:
     from drift_detection import drift_detection
-    ref_logist = my_model(X_ref)
+    ref_logist = my_model(X_ref).detach().numpy()
     drift_detector = drift_detection(ref_logist, 0.05, method="KSDrift")
     or
     drift_detector = drift_detection(ref_logist, 0.05, method="ChiSquareDrift")
@@ -15,5 +15,5 @@
     drift_detector.update_threshold(new_threshold)
     
     get the result by 
-    x_logist = my_model(x)
+    x_logist = my_model(x).detach().numpy()
     preds = drift_detector.get_result(x_logist)
